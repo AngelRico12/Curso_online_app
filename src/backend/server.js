@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import {
+  crearCurso,
   pool
 } from './courseService.js';
 
@@ -19,6 +20,16 @@ app.use(express.json());
     process.exit(1); // termina la aplicación si falla la conexión
   }
 })();
+
+app.post('/api/cursos', async (req, res) => {
+  try {
+    const curso = await crearCurso(req.body);
+    res.status(201).json(curso);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
 
 
 

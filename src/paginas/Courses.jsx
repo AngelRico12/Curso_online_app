@@ -67,6 +67,8 @@ function Courses() {
   );
 }
 
-
+import {
+  crearCurso
+} from "../servicios/courseService";
 
 export default Courses;
