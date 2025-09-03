@@ -9,3 +9,8 @@ export async function crearCurso(data) {
   });
   return await res.json();
 }
+
+export async function listarCursos() {
+  const res = await fetch(API_URL);
+  return await res.json();
+}

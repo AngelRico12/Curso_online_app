@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import {
   crearCurso,
+  listarCursos,
   pool
 } from './courseService.js';
 
@@ -25,6 +26,16 @@ app.post('/api/cursos', async (req, res) => {
   try {
     const curso = await crearCurso(req.body);
     res.status(201).json(curso);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/cursos', async (req, res) => {
+  try {
+    const cursos = await listarCursos();
+    res.json(cursos);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: err.message });

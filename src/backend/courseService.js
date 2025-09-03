@@ -18,3 +18,8 @@ export async function crearCurso(data) {
   );
   return result.rows[0];
 }
+
+export async function listarCursos() {
+  const result = await pool.query('SELECT * FROM cursos ORDER BY creado_en DESC');
+  return result.rows;
+}
