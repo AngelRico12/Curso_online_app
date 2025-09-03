@@ -1,6 +1,8 @@
 const API_URL = 'http://localhost:3000/api/cursos';
 
 
+//prueba
+
 export async function crearCurso(data) {
   const res = await fetch(API_URL, {
     method: 'POST',
