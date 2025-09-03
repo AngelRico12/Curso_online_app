@@ -36,11 +36,11 @@ return (
 </div>
 <div className="form-row">
 <label>Instructor</label>
-<input className="input" value={instructor} onChange={(e) => setInstructor(e.target.value)} />
+<input className="input" value={instructor} onChange={(e) => setInstructor(e.target.value)} required/>
 </div>
 <div className="form-row">
 <label>Descripción</label>
-<textarea className="textarea" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+<textarea className="textarea" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} required/>
 </div>
 <div className="form-actions">
 <button type="button" className="btn secondary" onClick={onCancel} disabled={enviando}>Cancelar</button>
