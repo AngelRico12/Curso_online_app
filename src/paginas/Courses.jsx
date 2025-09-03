@@ -67,6 +67,11 @@ function Courses() {
   );
 }
 
-
+import {
+  eliminarCurso,
+  actualizarCurso,
+  listarCursos,
+  crearCurso
+} from "../servicios/courseService";
 
 export default Courses;
