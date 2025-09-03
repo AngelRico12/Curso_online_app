@@ -2,6 +2,8 @@
 import express from 'express';
 import cors from 'cors';
 import {
+  actualizarCurso,
+  obtenerCurso,
   crearCurso,
   listarCursos,
   pool
@@ -36,6 +38,27 @@ app.get('/api/cursos', async (req, res) => {
   try {
     const cursos = await listarCursos();
     res.json(cursos);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/cursos/:id', async (req, res) => {
+  try {
+    const curso = await obtenerCurso(req.params.id);
+    if (!curso) return res.status(404).json({ error: 'Curso no encontrado' });
+    res.json(curso);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.put('/api/cursos/:id', async (req, res) => {
+  try {
+    const curso = await actualizarCurso(req.params.id, req.body);
+    res.json(curso);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: err.message });
