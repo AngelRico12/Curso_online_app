@@ -68,6 +68,7 @@ function Courses() {
 }
 
 import {
+  actualizarCurso,
   listarCursos,
   crearCurso
 } from "../servicios/courseService";
