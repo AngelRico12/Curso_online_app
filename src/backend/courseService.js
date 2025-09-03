@@ -41,3 +41,8 @@ export async function obtenerCurso(id) {
   const result = await pool.query('SELECT * FROM cursos WHERE id = $1', [id]);
   return result.rows[0] || null;
 }
+
+export async function eliminarCurso(id) {
+  await pool.query('DELETE FROM cursos WHERE id = $1', [id]);
+  return { ok: true };
+}
