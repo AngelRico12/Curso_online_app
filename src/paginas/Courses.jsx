@@ -68,6 +68,7 @@ function Courses() {
 }
 
 import {
+  eliminarCurso,
   actualizarCurso,
   listarCursos,
   crearCurso

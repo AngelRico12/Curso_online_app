@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import {
+  eliminarCurso,
   actualizarCurso,
   obtenerCurso,
   crearCurso,
@@ -59,6 +60,16 @@ app.put('/api/cursos/:id', async (req, res) => {
   try {
     const curso = await actualizarCurso(req.params.id, req.body);
     res.json(curso);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.delete('/api/cursos/:id', async (req, res) => {
+  try {
+    await eliminarCurso(req.params.id);
+    res.json({ ok: true });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: err.message });

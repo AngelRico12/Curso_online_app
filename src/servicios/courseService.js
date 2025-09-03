@@ -28,3 +28,8 @@ export async function actualizarCurso(id, data) {
   });
   return await res.json();
 }
+
+export async function eliminarCurso(id) {
+  await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
+  return { ok: true };
+}
